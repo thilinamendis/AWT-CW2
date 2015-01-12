@@ -1,0 +1,373 @@
+ension">
+      <summary>Holds a list of weak references to instances.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.InstanceExtension.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.InstanceExtension" /> class. </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.InstanceExtension.Index">
+      <summary>Gets or sets the index of the instance.</summary>
+      <returns>An integer representing the index of the instance.</returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.InstanceExtension.ProvideValue(System.IServiceProvider)">
+      <summary>Returns the value of the instance specified by <see cref="P:Microsoft.Windows.Design.Documents.InstanceExtension.Index" />.</summary>
+      <returns>The value of the instance specified by <see cref="P:Microsoft.Windows.Design.Documents.InstanceExtension.Index" />.</returns>
+      <param name="serviceProvider">Ignored.</param>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager">
+      <summary>Handles reading and writing markup (XAML) documents.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager" /> class.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.#ctor(Microsoft.Windows.Design.EditingContext)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager" /> class. </summary>
+      <param name="context">The editing context this document manager uses to get services.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.#ctor(Microsoft.Windows.Design.Features.FeatureManager)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager" /> class.</summary>
+      <param name="manager">The extension manager this document manager uses to resolve extensions and get services.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="manager" /> is null.</exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Context">
+      <summary>Gets access to the editing context of the designer. </summary>
+      <returns>An editing context of the designer. This property never returns null.</returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.CreateMarkupTree(Microsoft.Windows.Design.Documents.IMarkupSourceProvider,Microsoft.Windows.Design.Documents.IMarkupProjectContext)">
+      <summary>Creates the <see cref="T:Microsoft.Windows.Design.Documents.Trees.MarkupDocumentTreeManager" /> that is used to load and save the document. </summary>
+      <returns>A new <see cref="T:Microsoft.Windows.Design.Documents.Trees.MarkupDocumentTreeManager" />.</returns>
+      <param name="source">The <see cref="T:Microsoft.Windows.Design.Documents.IMarkupSourceProvider" /> that is used to load and save the document.</param>
+      <param name="project">An optional project context that can provide additional contextual information.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.CreateModelTree(Microsoft.Windows.Design.Documents.Trees.DocumentTreeManager,Microsoft.Windows.Design.Documents.IMarkupProjectContext)">
+      <summary>Creates the <see cref="T:Microsoft.Windows.Design.Documents.Trees.ModelDocumentTreeManager" /> that is used to create and maintain the editing model for the designer. </summary>
+      <returns>A new <see cref="T:Microsoft.Windows.Design.Documents.Trees.ModelDocumentTreeManager" />.</returns>
+      <param name="markupTree">An instance of <see cref="T:Microsoft.Windows.Design.Documents.Trees.DocumentTreeManager" /> that provides access to the parsed markup information.</param>
+      <param name="project">An optional project context that can provide additional contextual information.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="markupTree" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.CreateViewManager(Microsoft.Windows.Design.Documents.Trees.ModelDocumentTreeManager)">
+      <summary>Creates the <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" /> that is used to create and maintain the view for the designer.</summary>
+      <returns>A new <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" />.</returns>
+      <param name="modelTree">An instance of the <see cref="T:Microsoft.Windows.Design.Documents.Trees.ModelDocumentTreeManager" /> that provides access to the model.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="modelTree" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Dispose">
+      <summary>Releases all resources used by the <see cref="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager" />. </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.FeatureManager">
+      <summary>Gets access to the extension manager provided in the constructor. </summary>
+      <returns>The extension manager provided in the constructor. This property may return null if this document manager is not using a feature manager.</returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Finalize">
+      <summary>Finalizer for <see cref="T:Microsoft.Windows.Design.Documents.MarkupDocumentManager" />.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.FromIdentity(Microsoft.Windows.Design.Documents.Identities.Identity)">
+      <summary>Returns the model item associated with the specified identity.</summary>
+      <returns>A model item bound to the identity or null if no item was found.</returns>
+      <param name="identity">The identity to look for.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="identity" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.GetIdentity(Microsoft.Windows.Design.Model.ModelItem)">
+      <summary>Returns the identity of the specified item.</summary>
+      <returns>An identity for the item or null if the item has no identity associated with it.</returns>
+      <param name="item">The item to retrieve the identity for.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="item" /> is null.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.IsViewManagerSupported(System.Type,Microsoft.Windows.Design.Documents.ViewManagerAttribute)">
+      <summary>Returns whether there is a valid <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" /> and view that is supported.</summary>
+      <param name="rootItemType"></param>
+      <param name="rootViewManagerAttribute"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Load(Microsoft.Windows.Design.Documents.IMarkupSourceProvider)">
+      <summary>Loads the specified document. </summary>
+      <returns>true if the document was successfully loaded; otherwise, false if there were errors. </returns>
+      <param name="source">The source to load the markup from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">A source document has already been loaded.</exception>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Load(Microsoft.Windows.Design.Documents.IMarkupSourceProvider,Microsoft.Windows.Design.Documents.IMarkupProjectContext)">
+      <summary>Loads the specified document. </summary>
+      <returns>true if the document load was successful; otherwise, false if there were errors. </returns>
+      <param name="source">The source to load the markup from.</param>
+      <param name="project">An optional project context that can be used to locate dependencies the source file may require.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> is null.</exception>
+      <exception cref="T:System.InvalidOperationException">A source document has already been loaded.</exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.LoadState">
+      <summary>Gets the load state of this document.</summary>
+      <returns>The load state of this document.</returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.MarkupFormatting">
+      <summary>Gets or sets formatting rules that are used when formatting markup changes are made to the document.</summary>
+      <returns>Formatting rules that are used when formatting markup changes are made to the document.</returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Root">
+      <summary>Gets the root <see cref="T:Microsoft.Windows.Design.Model.ModelItem" /> of the model. </summary>
+      <returns>The root of the model or null if the document has not been loaded.</returns>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Documents.MarkupDocumentManager.UndoUnitAborted">
+      <summary>Occurs when an undo unit is aborted. </summary>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Documents.MarkupDocumentManager.UndoUnitCreated">
+      <summary>Occurs when an undo unit is created. </summary>
+    </member>
+    <member name="E:Microsoft.Windows.Design.Documents.MarkupDocumentManager.UndoUnitOpened">
+      <summary>Occurs when an undo unit is opened. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupDocumentManager.Update">
+      <summary>Updates the model based on changes that are made to the source.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupDocumentManager.View">
+      <summary>Gets the root visual of the view. </summary>
+      <returns>The root visual of the view or null if the document has not been loaded.</returns>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.MarkupErrorMessageCategory">
+      <summary>Represents a collection of values that identify types or severity of error messages.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.MarkupErrorMessageCategory.Error">
+      <summary>Represents an error.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.MarkupErrorMessageCategory.Warning">
+      <summary>Represent a warning.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.MarkupErrorMessageCategory.Message">
+      <summary>Represents an informational note.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.MarkupFormatting">
+      <summary>Provides a way to access external formatting options that can be used for serializing changes that were made in the designer.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.MarkupFormatting.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.MarkupFormatting" /> class. </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupFormatting.IndentText">
+      <summary>When overridden in a derived class, gets a string that is used for indentation.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupFormatting.Options">
+      <summary>When overridden in a derived class, gets a set of formatting option flags.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupFormatting.QuoteChar">
+      <summary>When overridden in a derived class, gets the character that is used for quotation marks.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupFormatting.TabWidth">
+      <summary>When overridden in a derived class, gets the width of a tab character in spaces.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.MarkupFormatting.WrapColumn">
+      <summary>When overridden in a derived class, gets the column for tag wrapping.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs">
+      <summary>Provides data regarding a source modification.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs.#ctor(System.Int32,System.Int32,System.Int32)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs" /> class. </summary>
+      <param name="offset"></param>
+      <param name="oldLength"></param>
+      <param name="newLength"></param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs.NewLength">
+      <summary>Gets the number of characters inserted in the file at the offset. </summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs.Offset">
+      <summary>Gets the zero-based offset from the beginning of the file where the change occurred.</summary>
+      <returns>A zero-based offset from the beginning of the file where the change occurred or -1 if the location of the change is not known.</returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs.OldLength">
+      <summary>Gets the number of characters deleted from the file at the offset. </summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.SourceTextChangeEventArgs.Unknown">
+      <summary>The event arguments to pass if the location of the source file change is unknown.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.UpdateState">
+      <summary>Used to indicate to the markup source provider the update state of a document.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.UpdateState.Success">
+      <summary>The changes that were made to the document resulted in a valid document and the listening document trees have been updated.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.UpdateState.Failed">
+      <summary>The changes that were made to the document resulted in an invalid document and the listening documents do not represent the source.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.UpdateState.Reload">
+      <summary>The changes that were made to the document require the document to be reinterpreted. This reinterpretation can be caused by a change to the root element type or by an internal error when trying to process the document change.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.ViewManager">
+      <summary>Manages and provides the view for the designer. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" /> class. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.Dispose">
+      <summary>Releases all resources used by the <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" />. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.Dispose(System.Boolean)">
+      <summary>Releases the unmanaged resources used by the <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" /> and optionally releases the managed resources. </summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources. </param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.GetPropertyRedirections(System.Windows.DependencyObject)">
+      <summary>Gets the value of the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property for a specified dependency object. </summary>
+      <returns>An enumeration of property identifiers indicating properties on the model that should be redirected on the view, or null if there are none.</returns>
+      <param name="view">The view to retrieve the collection of property redirections for.</param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.Initialize(Microsoft.Windows.Design.EditingContext,Microsoft.Windows.Design.Documents.Trees.ModelDocumentTreeManager)">
+      <summary>When overridden in a derived class, initializes this view manager with the specified model tree.</summary>
+      <param name="context">The editing context for the designer.</param>
+      <param name="model">The model document tree to use to initialize the view.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="model" /> is null.</exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections">
+      <summary>Gets or sets an enumeration of property identifiers indicating properties on the model that should be redirected to the view. This is an attached property.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirectionsProperty">
+      <summary>Identifies the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property.</summary>
+      <returns>The identifier for the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property.</returns>
+    </member>
+    <member name="F:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirectionsPropertyKey">
+      <summary>Identifies the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property key.</summary>
+      <returns>The identifier for the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property key.</returns>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManager.SetPropertyRedirections(System.Windows.DependencyObject,System.Collections.Generic.IEnumerable{Microsoft.Windows.Design.Model.PropertyIdentifier})">
+      <summary>Sets the value of the <see cref="P:Microsoft.Windows.Design.Documents.ViewManager.PropertyRedirections" /> attached property for a specified dependency object.</summary>
+      <param name="view">The view to set the collection of property redirections for.</param>
+      <param name="redirections">A collection of property identifiers indicating properties on the model that should be redirected to the view.</param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.ViewManager.View">
+      <summary>When overridden in a derived class, gets the view for the designer. </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.ViewManagerAttribute">
+      <summary>An attribute that can be added on the root of a model object graph to specify what view manager should be used to present the view.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManagerAttribute.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.ViewManagerAttribute" /> class. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.ViewManagerAttribute.#ctor(System.Type)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.ViewManagerAttribute" /> class. </summary>
+      <param name="viewManagerType">The type of view manager to use. The type specified must derive from <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" />.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="viewManagerType" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="viewManagerType" /> does not specify a type that derives from <see cref="T:Microsoft.Windows.Design.Documents.ViewManager" />.</exception>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.ViewManagerAttribute.ViewManagerType">
+      <summary>Gets the type of view manager to create for the model.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.AttachedEventIdentity">
+      <summary>An identity used for attached events.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.AttachedEventIdentity.#ctor(System.Type,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.AttachedEventIdentity" /> class. </summary>
+      <param name="declaringType">The declaring type of the attached event.</param>
+      <param name="name">The name for the attached event.</param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.AttachedEventIdentity.DeclaringType">
+      <summary>Gets the declaring type of the attached event.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.AttachedEventIdentity.Name">
+      <summary>Gets the name of the event. </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.AttachedPropertyIdentity">
+      <summary>An identity used for an attached property.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.AttachedPropertyIdentity.#ctor(System.Windows.DependencyProperty)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.AttachedPropertyIdentity" /> class. </summary>
+      <param name="property">The attached property.</param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.AttachedPropertyIdentity.Property">
+      <summary>Gets the property that was attached.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.AttachedPropertyIdentity.SimpleName">
+      <summary>Gets a simple name for the identity. </summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity">
+      <summary>An identity used for collection content.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity.Equals(System.Object)">
+      <param name="obj"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity.GetHashCode"></member>
+    <member name="F:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity.Instance">
+      <summary>An instance of the collection content property identity to use. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity.IsCollectionContentPropertyIdentity(Microsoft.Windows.Design.Documents.Identities.Identity)">
+      <summary>Returns a value indicating whether the specified identity is a collection content property identity.</summary>
+      <returns>true if the <paramref name="identity" /> is a contained identity and that contained identity contains a <see cref="T:Microsoft.Windows.Design.Documents.Identities.NamePropertyIdentity" /> object as the content part of the identity; otherwise, false.</returns>
+      <param name="identity">An identity to check whether it is a collection content property identity.</param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionContentIdentity.ToString"></member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity">
+      <summary>An identity used to report damage to the content of a collection. </summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity.#ctor(Microsoft.Windows.Design.Documents.Identities.Identity,Microsoft.Windows.Design.Documents.Identities.Identity,Microsoft.Windows.Design.Documents.Identities.Identity)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity" /> class. </summary>
+      <param name="collectionIdentity">The identity of the collection property that is damaged.</param>
+      <param name="itemBeforeDamage">The identity of the item before the damage or null if the damage is before the first item in the collection. For example, you can insert an item at the beginning of the collection.</param>
+      <param name="itemAfterDamage">The identity of the item after the damage or null if the damage is after the last item in the collection. For example, you can insert an item at the end of the collection.</param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity.AfterDamage">
+      <summary>Gets the identity of the item in the collection after the damage.</summary>
+      <returns>The identity of the item in the collection after the damage or null if the damage was after the last item. For example, you can insert an item at the end of the collection.</returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity.BeforeDamage">
+      <summary>Gets the identity of the item in the collection before the damage.</summary>
+      <returns>The identity of the item in the collection before the damage or null if the damage was before the first item. For example, you can insert an item at the beginning of the collection.</returns>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionDamageIdentity.Collection">
+      <summary>Gets the identity of the collection property that was damaged.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity">
+      <summary>An identity based on the order a type instance is in a collection.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity.#ctor(Microsoft.Windows.Design.Documents.Identities.Identity,System.Type,System.Int32)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity" /> class. </summary>
+      <param name="collection"></param>
+      <param name="type"></param>
+      <param name="order"></param>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity.Collection">
+      <summary>Gets the identity of the collection the object that has this identity is contained in.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity.Order">
+      <summary>Gets the order of the object in the collection.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CollectionOrderIdentity.Type">
+      <summary>Gets the type of the object this identity is associated with.</summary>
+    </member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity">
+      <summary>An identity that composes one or more identities together to form a composite identity.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.#ctor(Microsoft.Windows.Design.Documents.Identities.Identity[])">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity" /> class composed of the specified identities.</summary>
+      <param name="identities">An array of identities that are used to construct a composite identity.</param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.Equals(System.Object)">
+      <param name="obj"></param>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.GetHashCode"></member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.GetInternalIdentities">
+      <summary>Gets an array of internal identities.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.Identities">
+      <summary>Gets an enumeration of the contained identities.</summary>
+    </member>
+    <member name="P:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.SimpleName">
+      <summary>Gets the simple name of a composite identity.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.CompositeIdentity.ToString"></member>
+    <member name="T:Microsoft.Windows.Design.Documents.Identities.ContainedIdentity">
+      <summary>A contained identity that is composed of some container unique identity and the identity of the container to form a globally unique identity.</summary>
+    </member>
+    <member name="M:Microsoft.Windows.Design.Documents.Identities.ContainedIdentity.#ctor(Microsoft.Windows.Design.Documents.Identities.Identity,Microsoft.Windows.Design.Documents.Identities.Identity)">
+      <summary>Initializes a new instance of the <see cref="T:Microsoft.Windows.Design.Documents.Identities.ContainedIdentity" /> class. </summary>
+      <param name="container"></param>
+      <param name="content"></param>
+    </member>
+    <
