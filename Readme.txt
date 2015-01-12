@@ -1,4 +1,4 @@
-Deploy QANDA on localhost (Windows)
+Deploy absolute on localhost (Windows)
 
 1- Download and install XAMPP from http://www.apachefriends.org/en/xampp-windows.html on you PC
 2- Copy my_data folder to C:\xampp\htdocs (default path, depends on the drive you select during installation)
