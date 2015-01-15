@@ -23,9 +23,9 @@ $config['smtp_port']=465;
 
 $config['smtp_timeout']=30;
 
-$config['smtp_user']="qanda.lk@gmail.com"; 
+$config['smtp_user']="ABSOLUTE.lk@gmail.com"; 
 
-$config['smtp_pass']="qandacw2"; 
+$config['smtp_pass']="ABSOLUTEcw2"; 
 
 $config['charset']="utf-8";
 

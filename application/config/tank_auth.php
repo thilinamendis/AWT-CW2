@@ -7,8 +7,8 @@
 | These details are used in emails sent by authentication library.
 |--------------------------------------------------------------------------
 */
-$config['website_name'] = 'qanda';
-$config['webmaster_email'] = 'webmaster@qanda.com';
+$config['website_name'] = 'ABSOLUTE';
+$config['webmaster_email'] = 'webmaster@ABSOLUTE.com';
 
 /*
 |--------------------------------------------------------------------------
