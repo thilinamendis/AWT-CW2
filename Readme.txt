@@ -12,6 +12,6 @@ Deploy absolute on localhost (Windows)
 9- After the database loads click on the Import tab.
 10- Select db_awt_qanda.sql file that came with the project by clicking on the prowse button.
 11- Select Go. Niw the database is created!
-12- You can access the website by typing in localhost/my_data/qanda
+12- You can access the website by typing in localhost/ABSOLUTE
 
 Happy Posting! 
